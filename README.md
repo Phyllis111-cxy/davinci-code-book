@@ -19,4 +19,4 @@ npm run dev
 
 ## 配图
 
-页内上传优先，写入 localStorage；也可将 PNG 放入 `public/art/`。不强制 Gemini。
+页内配图放在 `public/art/`。

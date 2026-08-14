@@ -1,7 +1,17 @@
-import { INK, INK_FAINT, INK_SOFT } from './ink'
+const GOLD = '#c4a35a'
+const GOLD_EDGE = '#6b4e24'
 
-/** Fibonacci spiral — clean ink line with a quiet floor mark. */
+/** Fibonacci spiral — same path as the cipher nodes, manuscript gold ink. */
 export function SketchSpiral({ className }: { className?: string }) {
+  const d = `M16 76
+           C 16 52, 30 26, 52 22
+           C 74 18, 88 34, 86 52
+           C 84 68, 68 80, 50 78
+           C 36 76, 28 68, 28 58
+           C 28 48, 38 42, 48 44
+           C 58 46, 64 54, 60 62
+           C 57 68, 50 70, 46 66`
+
   return (
     <svg
       className={className}
@@ -10,17 +20,18 @@ export function SketchSpiral({ className }: { className?: string }) {
       preserveAspectRatio="xMidYMid meet"
     >
       <path
-        d="M16 76
-           C 16 52, 30 26, 52 22
-           C 74 18, 88 34, 86 52
-           C 84 68, 68 80, 50 78
-           C 36 76, 28 68, 28 58
-           C 28 48, 38 42, 48 44
-           C 58 46, 64 54, 60 62
-           C 57 68, 50 70, 46 66"
+        d={d}
         fill="none"
-        stroke={INK}
-        strokeWidth="1.2"
+        stroke={GOLD_EDGE}
+        strokeWidth="2.35"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d={d}
+        fill="none"
+        stroke={GOLD}
+        strokeWidth="1.35"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -29,27 +40,16 @@ export function SketchSpiral({ className }: { className?: string }) {
         cy="52"
         r="2.6"
         fill="none"
-        stroke={INK}
-        strokeWidth="1.1"
+        stroke={GOLD_EDGE}
+        strokeWidth="2.1"
       />
-      <line
-        x1="14"
-        y1="86"
-        x2="86"
-        y2="86"
-        stroke={INK_FAINT}
-        strokeWidth="0.9"
-        strokeLinecap="round"
-      />
-      <line
-        x1="14"
-        y1="18"
-        x2="14"
-        y2="86"
-        stroke={INK_SOFT}
-        strokeWidth="0.85"
-        strokeLinecap="round"
-        opacity="0.55"
+      <circle
+        cx="50"
+        cy="52"
+        r="2.6"
+        fill="none"
+        stroke={GOLD}
+        strokeWidth="1.15"
       />
     </svg>
   )

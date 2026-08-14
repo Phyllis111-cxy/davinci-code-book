@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { FibonacciSequenceGame } from '../../types'
+import { resolveArt } from '../../services/artStorage'
 import { SketchSpiral } from '../sketch/SketchSpiral'
 
 /** 螺旋上固定锚点（百分比），数字打乱后填入 */
@@ -91,6 +92,11 @@ export function FibonacciCipherGame({
     <>
       <section className="page page--left page--cipher">
         <div className="cipher-board">
+          <img
+            className="cipher-board__art"
+            src={resolveArt('/art/fibonacci-cipher.webp') ?? ''}
+            alt=""
+          />
           <p className="cipher-board__eyebrow">LOUVRE CIPHER · 展厅地面</p>
           <SketchSpiral className="cipher-spiral" />
 

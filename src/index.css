@@ -1,5 +1,5 @@
 :root {
-  --stage: #f4efe6;
+  --stage: #e8d7b6;
   --stage-open: #120e0b;
   --stage-glow: rgba(180, 120, 60, 0.22);
   --paper: #e8d7b6;
@@ -17,7 +17,7 @@
   --book-open-h: min(620px, 78vh);
   --font-display: 'Cormorant Garamond', 'Noto Serif SC', serif;
   --font-body: 'Noto Serif SC', 'Cormorant Garamond', serif;
-  --font-cover: 'LXGW WenKai', 'Kaiti SC', 'STKaiti', 'Noto Serif SC', serif;
+  --font-cover: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', serif;
   --cover-gilt: #cbb48a;
   color-scheme: light;
 }
@@ -247,7 +247,7 @@ input {
 .closed-book__title {
   font-family: var(--font-cover);
   font-size: 1.52rem;
-  font-weight: 300;
+  font-weight: 600;
   margin: 0;
   letter-spacing: 0.12em;
   line-height: 1.6;
@@ -698,33 +698,6 @@ input {
   color: var(--ink);
 }
 
-.page-art__upload {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.72rem;
-  color: var(--ink-soft);
-  position: absolute;
-  left: 0.4rem;
-  bottom: 0.35rem;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  background: rgba(243, 231, 204, 0.88);
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-}
-
-.page-art:hover .page-art__upload,
-.page-art:focus-within .page-art__upload {
-  opacity: 1;
-}
-
-.page-art__upload input {
-  font-size: 0.7rem;
-  max-width: 100%;
-}
-
 /* Games */
 .game-panel {
   display: flex;
@@ -895,14 +868,22 @@ input {
   position: relative;
   height: 100%;
   min-height: 0;
-  border: 1px solid rgba(44, 33, 24, 0.28);
+  border: 1px solid rgba(44, 33, 24, 0.35);
   border-radius: 2px;
-  background:
-    radial-gradient(ellipse at 40% 30%, rgba(212, 181, 106, 0.08), transparent 55%),
-    linear-gradient(165deg, #f7f0e2, #efe4cc);
+  background: #efe4cc;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.cipher-board__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Refined ink chips — clean line plate, not draft frames */
@@ -921,6 +902,7 @@ input {
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   color: rgba(42, 31, 22, 0.7);
+  text-align: center;
 }
 
 .cipher-spiral,
@@ -930,7 +912,7 @@ input {
   inset: 8% 6% 18%;
   width: auto;
   height: auto;
-  opacity: 0.88;
+  opacity: 0.96;
   pointer-events: none;
   z-index: 1;
 }
@@ -1020,6 +1002,7 @@ input {
   font-size: 0.72rem;
   line-height: 1.45;
   color: rgba(42, 31, 22, 0.72);
+  text-align: center;
 }
 
 .fib-slots {
@@ -1142,18 +1125,25 @@ input {
     background 0.2s ease;
 }
 
+.symbol-board .symbol-node.ink-chip {
+  background: rgba(232, 215, 182, 0.72) !important;
+  border: 1px solid rgba(107, 78, 50, 0.42) !important;
+  border-radius: 2px !important;
+  box-shadow: none;
+}
+
 .symbol-node:hover {
   transform: scale(1.05);
 }
 
 .symbol-node.is-active {
   border-color: var(--madder) !important;
-  background: rgba(139, 46, 46, 0.1) !important;
+  background: rgba(184, 134, 11, 0.22) !important;
 }
 
 .symbol-node.is-solved {
   border-color: var(--verdure) !important;
-  background: rgba(61, 107, 85, 0.14) !important;
+  background: rgba(61, 107, 85, 0.18) !important;
 }
 
 .symbol-node__sketch {
@@ -1230,43 +1220,87 @@ input {
   color: var(--ink);
 }
 
-/* Cryptex rings */
+/* Cryptex rings — overlay sits on a 1:1 fit of the art */
 .cryptex-board {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.cryptex-body {
+.cryptex-board .cipher-board__eyebrow {
   position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+}
+
+.cryptex-stage {
+  position: absolute;
+  inset: 11% 4% 15%;
+  container-type: size;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto 0.75rem;
-  padding: 1.8rem 0.5rem 2.6rem;
+}
+
+.cryptex-fit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(100cqw, 100cqh);
+  height: min(100cqw, 100cqh);
+}
+
+.cryptex-fit__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
 }
 
 .cryptex-rings {
-  display: flex;
-  gap: 0.45rem;
-  padding: 0.2rem;
+  position: absolute;
+  left: 24.4%;
+  width: 51.1%;
+  top: 42%;
+  height: 15%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10.6%;
+  padding: 0;
+  margin: 0;
   background: transparent;
 }
 
 .cryptex-ring-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.28rem;
+  position: relative;
+  display: block;
+  height: 100%;
 }
 
 .cryptex-turn {
-  width: 2.2rem;
-  height: 1.3rem;
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  width: 1.55rem;
+  height: 1.05rem;
   color: var(--ink);
   cursor: pointer;
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   line-height: 1;
   padding: 0;
+}
+
+.cryptex-ring-col .cryptex-turn:first-child {
+  bottom: calc(100% + 0.4rem);
+}
+
+.cryptex-ring-col .cryptex-turn:last-child {
+  top: calc(100% + 0.4rem);
+}
+
+.cryptex-board .cryptex-turn.ink-chip {
+  background: #f4ead4 !important;
+  border: 1px solid rgba(90, 62, 32, 0.45) !important;
+  color: #2c2118;
 }
 
 .cryptex-turn:disabled {
@@ -1275,18 +1309,23 @@ input {
 }
 
 .cryptex-face {
-  width: 2.45rem;
-  height: 2.65rem;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.12rem;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #2a1f16;
+  font-family: var(--font-cover);
+  font-size: clamp(0.95rem, 4.6cqw, 1.35rem);
   font-weight: 700;
   cursor: pointer;
+  line-height: 1;
 }
 
 .cryptex-face.is-open {
-  border-color: var(--verdure) !important;
-  background: rgba(61, 107, 85, 0.14) !important;
+  color: var(--verdure);
 }
 
 .cryptex-reading {

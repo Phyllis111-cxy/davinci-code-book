@@ -21,7 +21,6 @@ export function ChapterSpread({
     <>
       <section className="page page--left">
         <PageArt
-          artId={phase.id}
           image={phase.image}
           title={phase.titleLocal}
           prompt={phase.imagePrompt}

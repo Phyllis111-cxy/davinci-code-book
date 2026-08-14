@@ -70,7 +70,6 @@ export function PointSpread({
     <>
       <section className="page page--left">
         <PageArt
-          artId={point.id}
           image={point.image}
           title={point.title}
           prompt={point.imagePrompt}

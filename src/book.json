@@ -29,7 +29,7 @@
       "titleLocal": "圣殿骑士的阴影",
       "summary": "传说里，两位骑士共骑一匹马——贫穷与誓约的记号。几个世纪后，同一套象征仍在暗处流通：谁守护秘密，谁又在寻找它。",
       "imagePrompt": "two medieval knights sharing one horse, stiff hieratic pose, stone cloister as repeating flat arches, gold sun emblem, oak-leaf border, simple gold candle discs, Gothic illumination on aged vellum, no photorealism",
-      "image": "/art/phase-1.png",
+      "image": "/art/phase-1.webp",
       "quote": "历史从不消失，它只是换了一套符号。"
     },
     {
@@ -39,7 +39,7 @@
       "titleLocal": "卢浮宫之夜",
       "summary": "闭馆后的展廊里，馆长以身体写下最后的坐标。地板上的数字看起来杂乱无章——但兰登很快意识到：它们或许本该按某条著名的自然数列排列。",
       "imagePrompt": "manuscript page of a long gallery of repeating flat arches, a fallen robed figure without gore, cryptic numbers and symbols on the floor as blackletter glyphs, night marked by a gold crescent and stars in the margin, Gothic illumination on aged vellum, no cinematic lighting",
-      "image": "/art/phase-2.png",
+      "image": "/art/phase-2.webp",
       "quote": "乱序本身，就是一道锁。"
     },
     {
@@ -49,7 +49,7 @@
       "titleLocal": "密码与数列",
       "summary": "那条数列叫斐波那契：每一项等于前两项之和——1，1，2，3，5，8，13，21……馆长把它们打乱写在展厅里；只有归回正序，后续的乱序字母与博物馆暗号才会重新可读。索菲与兰登被迫像解谜人一样阅读这座城市。",
       "imagePrompt": "illuminated parchment page with a Fibonacci spiral in gold and forest green, scrambled blackletter numerals scattered like a cipher, vine-and-leaf border, a small gold moon in the margin, flat tempera on aged vellum, no photorealism",
-      "image": "/art/phase-3.png",
+      "image": "/art/phase-3.webp",
       "quote": "1 加 1 得 2，2 加 3 得 5——自然用加法写密码。"
     },
     {
@@ -59,7 +59,7 @@
       "titleLocal": "圣杯的隐喻",
       "summary": "达芬奇的构图像一封折叠的信。记住这套语法：五瓣玫瑰常作圣杯的隐喻；双骑士共骑指向圣殿誓约；维特鲁威人讲比例与神性；密码筒是双重密封；杯的外形未必是答案本身。读懂符号，才能读懂留白。",
       "imagePrompt": "manuscript still-life: five-petaled brick-red rose, chalice silhouette, Vitruvian circle-and-square as flat gold diagrams, oak-leaf frame with gold corner emblems, aged vellum, Gothic illumination, no photorealism",
-      "image": "/art/phase-4.png",
+      "image": "/art/phase-4.webp",
       "quote": "玫瑰有五瓣时，它往往不只是花。"
     },
     {
@@ -69,7 +69,7 @@
       "titleLocal": "密码筒与逃亡",
       "summary": "双层密码筒把答案锁进力学与耐心：每一环刻着字符，必须转到正确密语才会开启——答错的传说里藏着酸液。密语往往呼应你已读懂的象征；上一局解开的「玫瑰之下」，或许就是此刻该对齐的四字。",
       "imagePrompt": "brass cryptex drawn as a medieval reliquary cylinder with lettered rings, writing desk with quill and parchment, a tiny Paris tower in the left margin, flat tempera on aged vellum, vine border, no window photorealism",
-      "image": "/art/phase-5.png",
+      "image": "/art/phase-5.webp",
       "quote": "先读懂象征，再转动金属。"
     },
     {
@@ -79,7 +79,7 @@
       "titleLocal": "伦敦圣堂",
       "summary": "圣殿教堂的石骑士躺在地上，像一份未过期的契约。伦敦把巴黎的谜题接过去——信仰、权力与档案在同一屋顶下对视。",
       "imagePrompt": "Temple Church recumbent knight effigies as flat stone figures on a patterned floor, Gothic arcade as a decorative border, simple gold candle flames, cool grey and antique gold on aged vellum, no photorealism",
-      "image": "/art/phase-6.png",
+      "image": "/art/phase-6.webp",
       "quote": "石头比证人更长久。"
     },
     {
@@ -89,7 +89,7 @@
       "titleLocal": "罗斯林的回响",
       "summary": "北上的石刻与血脉传闻交织。回廊里每一片叶饰都像一句暗号——你听到的越多，越要克制下结论的冲动。",
       "imagePrompt": "Rosslyn chapel corridor where carved foliage becomes the manuscript border filling the page, stained glass as flat colored panes, pale wash for mist, gold crescents in the corner, Gothic illumination on aged vellum, no atmospheric perspective",
-      "image": "/art/phase-7.png",
+      "image": "/art/phase-7.webp",
       "quote": "回声不是答案，只是答案的形状。"
     },
     {
@@ -99,7 +99,7 @@
       "titleLocal": "真相的门槛",
       "summary": "追寻者终于站到门槛前。书在这里停住——不是因为没有答案，而是因为有些答案，只属于亲自走到这一步的人。",
       "imagePrompt": "seeker seen from behind at a stone doorway, stiff medieval pose, dawn as a gold sun emblem above the arch, nothing revealed beyond the threshold, oak-leaf border, Gothic illumination on aged vellum, no photorealism",
-      "image": "/art/phase-8.png",
+      "image": "/art/phase-8.webp",
       "quote": "合上书之前，先听听自己的心跳。"
     }
   ],
@@ -111,7 +111,7 @@
       "title": "斐波那契的回声",
       "summary": "馆长把斐波那契数列打乱写在展厅螺旋上。按正确次序点选左页数字，才能解开关键词封印。",
       "imagePrompt": "illuminated cipher board: a Fibonacci spiral of numbered roundels on aged vellum, scrambled blackletter digits, vine-and-gold border, flat 2D tempera, no photorealism",
-      "image": null,
+      "image": "/art/fibonacci-cipher.webp",
       "game": {
         "type": "fibonacci-sequence",
         "prompt": "按斐波那契数列，依次点选左页数字。",
@@ -129,7 +129,7 @@
       "title": "圣杯语法",
       "summary": "左页草图散落着五枚符号。先点符号读线索，再在右页三种解读里裁定正解——乱点很难蒙对。",
       "imagePrompt": "illuminated parchment with five seals in a vine frame: five-petaled rose, two knights on one horse, Vitruvian circle, cryptex cylinder, chalice silhouette, blackletter labels, aged vellum, no photorealism",
-      "image": null,
+      "image": "/art/grail-symbols.webp",
       "game": {
         "type": "symbol-decode",
         "prompt": "先点左页符号察看线索，再在右页选出正解。",
@@ -142,8 +142,8 @@
             "name": "五瓣玫瑰",
             "glyph": "❀",
             "clue": "花瓣之数为五——隐修会印章上常见的记号。",
-            "x": 22,
-            "y": 32,
+            "x": 27,
+            "y": 17,
             "options": ["圣杯象征", "骑士印章", "自然数列"],
             "answer": "圣杯象征"
           },
@@ -152,8 +152,8 @@
             "name": "双骑士",
             "glyph": "♞",
             "clue": "两人共骑一马——贫穷与誓约的古老纹章。",
-            "x": 50,
-            "y": 28,
+            "x": 33,
+            "y": 83,
             "options": ["圣殿誓约", "双重密封", "比例与神性"],
             "answer": "圣殿誓约"
           },
@@ -162,8 +162,8 @@
             "name": "维特鲁威",
             "glyph": "✡",
             "clue": "圆与方框住人体——度量里藏着神性比例。",
-            "x": 78,
-            "y": 34,
+            "x": 50,
+            "y": 16,
             "options": ["比例与神性", "圣杯象征", "自然数列"],
             "answer": "比例与神性"
           },
@@ -172,8 +172,8 @@
             "name": "密码筒",
             "glyph": "◎",
             "clue": "双层筒壁，一环咬合一环——答案被封了两次。",
-            "x": 34,
-            "y": 62,
+            "x": 70,
+            "y": 83,
             "options": ["双重密封", "圣殿誓约", "圣杯象征"],
             "answer": "双重密封"
           },
@@ -182,8 +182,8 @@
             "name": "杯形",
             "glyph": "♛",
             "clue": "外形像杯，却常是误导——真正的所指往往在别处。",
-            "x": 68,
-            "y": 66,
+            "x": 73,
+            "y": 17,
             "options": ["叙事隐喻", "骑士印章", "双重密封"],
             "answer": "叙事隐喻"
           }
@@ -197,7 +197,7 @@
       "title": "密码筒",
       "summary": "左页密码筒四环可转。对照右页刻痕线索，拼出与上一局封印相呼应的四字密语，再点「尝试开启」。",
       "imagePrompt": "manuscript diagram of a brass cryptex with four lettered rings on a parchment desk, quill and oak leaves in the margin, flat tempera, Gothic illumination, no photorealism",
-      "image": null,
+      "image": "/art/cryptex-rings.webp",
       "game": {
         "type": "cryptex-rings",
         "prompt": "转动左页环面，对照线索拼出密语。",

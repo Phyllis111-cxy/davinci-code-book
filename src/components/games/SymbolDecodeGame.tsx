@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { SymbolDecodeGame as SymbolDecodeGameData } from '../../types'
-import { SketchGrailBoard, SketchSymbolIcon } from '../sketch/SketchGrailBoard'
+import { resolveArt } from '../../services/artStorage'
+import { SketchSymbolIcon } from '../sketch/SketchGrailBoard'
 
 const ICON_KIND: Record<
   string,
@@ -88,9 +89,12 @@ export function SymbolDecodeGame({
     <>
       <section className="page page--left page--cipher">
         <div className="cipher-board symbol-board">
+          <img
+            className="cipher-board__art"
+            src={resolveArt('/art/grail-symbols.webp') ?? ''}
+            alt=""
+          />
           <p className="cipher-board__eyebrow">GRAIL GRAMMAR · 草图页</p>
-
-          <SketchGrailBoard className="symbol-sketch" />
 
           {game.symbols.map((sym) => {
             const isSolved = Boolean(solved[sym.id])

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { CryptexRingsGame as CryptexRingsGameData } from '../../types'
-import { SketchCryptex } from '../sketch/SketchCryptex'
+import { resolveArt } from '../../services/artStorage'
 
 interface CryptexRingsGameProps {
   game: CryptexRingsGameData
@@ -68,50 +68,53 @@ export function CryptexRingsGame({
       <section className="page page--left page--cipher">
         <div className="cipher-board cryptex-board">
           <p className="cipher-board__eyebrow">CRYPTEX · 双层筒</p>
-
-          <SketchCryptex className="cryptex-sketch" />
-
-          <div className="cryptex-body" aria-label="密码筒">
-            <div className="cryptex-rings">
-              {game.rings.map((ring, i) => {
-                const glyph = ring.glyphs[indices[i] ?? 0]
-                const aligned = glyph === ring.answer
-                return (
-                  <div key={ring.id} className="cryptex-ring-col">
-                    <button
-                      type="button"
-                      className="cryptex-turn ink-chip"
-                      aria-label={`${ring.id} 上转`}
-                      disabled={unlocked}
-                      onClick={() => turn(i, -1)}
-                    >
-                      ▴
-                    </button>
-                    <button
-                      type="button"
-                      className={`cryptex-face ink-chip${
-                        aligned && unlocked ? ' is-open' : ''
-                      }`}
-                      disabled={unlocked}
-                      onClick={() => turn(i, 1)}
-                    >
-                      {glyph}
-                    </button>
-                    <button
-                      type="button"
-                      className="cryptex-turn ink-chip"
-                      aria-label={`${ring.id} 下转`}
-                      disabled={unlocked}
-                      onClick={() => turn(i, 1)}
-                    >
-                      ▾
-                    </button>
-                  </div>
-                )
-              })}
+          <div className="cryptex-stage">
+            <div className="cryptex-fit">
+              <img
+                className="cryptex-fit__art"
+                src={resolveArt('/art/cryptex-rings.webp') ?? ''}
+                alt=""
+              />
+              <div className="cryptex-rings" aria-label="密码筒">
+                {game.rings.map((ring, i) => {
+                  const glyph = ring.glyphs[indices[i] ?? 0]
+                  const aligned = glyph === ring.answer
+                  return (
+                    <div key={ring.id} className="cryptex-ring-col">
+                      <button
+                        type="button"
+                        className="cryptex-turn ink-chip"
+                        aria-label={`${ring.id} 上转`}
+                        disabled={unlocked}
+                        onClick={() => turn(i, -1)}
+                      >
+                        ▴
+                      </button>
+                      <button
+                        type="button"
+                        className={`cryptex-face${
+                          aligned && unlocked ? ' is-open' : ''
+                        }`}
+                        disabled={unlocked}
+                        onClick={() => turn(i, 1)}
+                      >
+                        {glyph}
+                      </button>
+                      <button
+                        type="button"
+                        className="cryptex-turn ink-chip"
+                        aria-label={`${ring.id} 下转`}
+                        disabled={unlocked}
+                        onClick={() => turn(i, 1)}
+                      >
+                        ▾
+                      </button>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
-
           <p className="cipher-board__hint">
             {game.hint ?? '每一环点上下箭头转动；密语与上一局封印相呼应。'}
           </p>

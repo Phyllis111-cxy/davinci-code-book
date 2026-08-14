@@ -7,7 +7,7 @@ interface ClosedBookProps {
 }
 
 export function ClosedBook({ dissolving, onOpen }: ClosedBookProps) {
-  const coverSrc = resolveArt('cover', book.cover.image)
+  const coverSrc = resolveArt(book.cover.image)
 
   return (
     <div
