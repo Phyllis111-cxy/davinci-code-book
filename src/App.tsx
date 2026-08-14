@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { book } from './data'
 import type { AppMode, BookmarkId } from './types'
 import { ClosedBook } from './components/ClosedBook'
+import { CoverCipherField } from './components/CoverCipherField'
 import { OpenBook } from './components/OpenBook'
 import { ChapterSpread } from './components/ChapterSpread'
 import { PointSpread } from './components/PointSpread'
@@ -29,7 +30,10 @@ export default function App() {
   return (
     <div className={`stage${mode !== 'closed' ? ' is-open' : ''}`}>
       {mode !== 'open' ? (
-        <ClosedBook dissolving={mode === 'closing-out'} onOpen={openBook} />
+        <>
+          <CoverCipherField fading={mode === 'closing-out'} />
+          <ClosedBook dissolving={mode === 'closing-out'} onOpen={openBook} />
+        </>
       ) : (
         <OpenBook bookmark={bookmark} onBookmark={setBookmark} onClose={closeBook}>
           {bookmark === 'chapters' ? (
@@ -58,7 +62,7 @@ export default function App() {
         </OpenBook>
       )}
       {mode === 'closed' ? (
-        <p className="stage-tagline">{book.tagline}</p>
+        <p className="stage-tagline">在书外探看</p>
       ) : null}
     </div>
   )

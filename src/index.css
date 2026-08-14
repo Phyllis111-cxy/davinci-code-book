@@ -1,7 +1,7 @@
 :root {
-  --stage: #e8d7b6;
+  --stage: #14110e;
   --stage-open: #120e0b;
-  --stage-glow: rgba(180, 120, 60, 0.22);
+  --stage-glow: rgba(196, 158, 96, 0.12);
   --paper: #e8d7b6;
   --paper-deep: #d9c49a;
   --ink: #2a1f16;
@@ -54,7 +54,8 @@ input {
   height: 100%;
   display: grid;
   place-items: center;
-  background: var(--stage);
+  background:
+    radial-gradient(ellipse 70% 52% at 50% 44%, #1d1814 0%, var(--stage) 72%);
   overflow: hidden;
 }
 
@@ -289,16 +290,127 @@ input {
 
 .stage-tagline {
   position: absolute;
-  bottom: 8%;
+  bottom: 6%;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(42, 31, 22, 0.45);
-  font-family: var(--font-display);
-  font-style: italic;
-  letter-spacing: 0.1em;
-  font-size: 0.88rem;
+  color: rgba(232, 214, 176, 0.28);
+  font-family: var(--font-cover);
+  font-style: normal;
+  letter-spacing: 0.42em;
+  font-size: 0.72rem;
   white-space: nowrap;
   pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.35s ease;
+}
+
+.stage.is-lamping .stage-tagline {
+  opacity: 0;
+}
+
+.cipher-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  --lamp-size: 22rem;
+}
+
+.cipher-field.is-fading {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cipher-field__whisper,
+.cipher-field__lamp {
+  position: absolute;
+  inset: 0;
+}
+
+.cipher-field__whisper {
+  opacity: 0.045;
+}
+
+.cipher-field__beam {
+  position: absolute;
+  width: var(--lamp-size);
+  height: var(--lamp-size);
+  left: var(--lamp-x, -40%);
+  top: var(--lamp-y, -40%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(236, 220, 176, 0.16) 0%,
+    rgba(196, 158, 96, 0.06) 36%,
+    transparent 68%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cipher-field__lamp {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  -webkit-mask-image: radial-gradient(
+    circle calc(var(--lamp-size) * 0.5) at var(--lamp-x, -40%) var(--lamp-y, -40%),
+    #000 0%,
+    #000 32%,
+    rgba(0, 0, 0, 0.45) 58%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    circle calc(var(--lamp-size) * 0.5) at var(--lamp-x, -40%) var(--lamp-y, -40%),
+    #000 0%,
+    #000 32%,
+    rgba(0, 0, 0, 0.45) 58%,
+    transparent 78%
+  );
+}
+
+.stage.is-lamping .cipher-field__lamp,
+.stage.is-lamping .cipher-field__beam {
+  opacity: 1;
+}
+
+.cipher-field__pack {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  justify-content: center;
+  gap: 0.55rem 1.15rem;
+  padding: 5vh 4vw;
+  width: 100%;
+  height: 100%;
+}
+
+.cipher-field__word {
+  font-family: var(--font-cover);
+  color: rgba(244, 234, 210, 0.82);
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.cipher-field__word.is-key {
+  font-size: clamp(0.95rem, 1.6vw, 1.35rem);
+  letter-spacing: 0.28em;
+  color: rgba(236, 220, 176, 0.95);
+}
+
+.cipher-field__word.is-line {
+  font-size: clamp(0.72rem, 1.15vw, 0.92rem);
+  letter-spacing: 0.16em;
+  color: rgba(244, 234, 210, 0.72);
+}
+
+.cipher-field__word.is-quiet {
+  font-size: clamp(0.62rem, 0.95vw, 0.78rem);
+  letter-spacing: 0.38em;
+  color: rgba(244, 234, 210, 0.42);
 }
 
 /* —— Open book —— */
@@ -1499,8 +1611,13 @@ input {
   }
 
   .stage-tagline {
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     bottom: 4%;
+    letter-spacing: 0.28em;
+  }
+
+  .cipher-field {
+    --lamp-size: 16rem;
   }
 
   .closed-book__title {
